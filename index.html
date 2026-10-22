@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>For Merrushe</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,500;1,700&family=Nunito:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#1b0f2e; --bg2:#2a1442; --ink:#f8ecff; --muted:#cdb6e6;
+  --rose:#ff6b8f; --peach:#ffb89a; --gold:#f6cf7a; --card:rgba(255,255,255,.07);
+  color-scheme:dark;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: light){
+  :root:not([data-theme="light"]){ --bg:#1b0f2e; }
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+body{
+  -webkit-tap-highlight-color:transparent;-webkit-text-size-adjust:100%;
+  margin:0;background:radial-gradient(1200px 700px at 50% -10%,var(--bg2),var(--bg));
+  background-color:var(--bg);color:var(--ink);
+  font:400 1.05rem/1.7 'Nunito',system-ui,sans-serif;overflow-x:hidden;min-height:100vh;
+}
+.serif{font-family:'Cormorant Garamond',Georgia,serif;font-style:italic}
+main{max-width:680px;margin:0 auto;padding:0 1.4rem 6rem;position:relative;z-index:2}
+section{padding:4.5rem 0 0}
+h1{font-size:clamp(3.6rem,17vw,7rem);line-height:.95;margin:0;font-weight:700;
+  background:linear-gradient(100deg,var(--peach),var(--rose) 55%,var(--gold));
+  -webkit-background-clip:text;background-clip:text;color:transparent;letter-spacing:-.01em}
+h2{font-size:clamp(1.9rem,6vw,2.6rem);margin:0 0 1rem;line-height:1.15;font-weight:500}
+.hero{min-height:92vh;min-height:88svh;display:flex;flex-direction:column;justify-content:center;gap:1.2rem;padding-top:3rem}
+.hero .sub{font-size:1.5rem;color:var(--muted);margin:0}
+.hero p.line{max-width:30ch;margin:0;color:var(--ink)}
+.btn{min-height:48px;touch-action:manipulation;font:600 1rem 'Nunito',sans-serif;color:#2a0f26;background:linear-gradient(120deg,var(--peach),var(--rose));
+  border:0;border-radius:999px;padding:.85rem 1.5rem;cursor:pointer;transition:transform .15s}
+.btn:active{transform:scale(.95)}
+.btn.ghost{background:var(--card);color:var(--ink);border:1px solid rgba(255,255,255,.18)}
+.btn:focus-visible,.react:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.row{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:.4rem}
+.letter{background:var(--card);border:1px solid rgba(255,255,255,.12);border-radius:28px 28px 28px 6px;padding:1.8rem 1.6rem}
+.letter p{margin:0 0 1rem}
+.letter p:last-child{margin:0}
+.sorry{border-left:3px solid var(--rose);padding-left:1.4rem}
+.promises{list-style:none;padding:0;margin:0;display:grid;gap:.9rem}
+.promises li{display:flex;gap:.9rem;align-items:flex-start;padding:1rem 1.2rem;background:var(--card);border-radius:18px}
+.promises li span:first-child{font-size:1.5rem;line-height:1.3}
+.promises b{display:block;font-weight:600;color:var(--peach)}
+.reactions{display:flex;flex-wrap:wrap;gap:.8rem;margin:1.2rem 0}
+.react{display:flex;flex-direction:column;align-items:center;gap:.2rem;min-width:84px;min-height:72px;touch-action:manipulation;padding:.9rem .8rem;
+  background:var(--card);border:1px solid rgba(255,255,255,.15);border-radius:20px;color:var(--ink);
+  font:600 .85rem 'Nunito',sans-serif;cursor:pointer;transition:transform .15s,background .2s}
+.react .e{font-size:2rem;transition:transform .2s}
+.react:hover .e{transform:scale(1.2) rotate(-6deg)}
+.react:active{transform:scale(.94)}
+.react.on{background:rgba(255,107,143,.22);border-color:var(--rose)}
+.meter{height:12px;border-radius:99px;background:rgba(255,255,255,.12);overflow:hidden;margin:.6rem 0 .3rem}
+.meter i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--peach),var(--rose),var(--gold));transition:width .4s}
+.small{color:var(--muted);font-size:.9rem}
+.secret{margin-top:1.2rem;padding:1.4rem;border-radius:20px;background:linear-gradient(135deg,rgba(255,107,143,.2),rgba(246,207,122,.15));
+  text-align:center;display:none}
+.secret.show{display:block;animation:pop .5s}
+.secret p{font-size:1.7rem;margin:0;line-height:1.3}
+@keyframes pop{from{transform:scale(.85);opacity:0}to{transform:none;opacity:1}}
+.big{touch-action:manipulation;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none;display:block;margin:2.5rem auto 0;font-size:5rem;background:none;border:0;cursor:pointer;
+  animation:beat 1.6s ease-in-out infinite;filter:drop-shadow(0 0 22px rgba(255,107,143,.6))}
+@keyframes beat{0%,100%{transform:scale(1)}15%{transform:scale(1.18)}30%{transform:scale(1)}45%{transform:scale(1.12)}}
+footer{text-align:center;margin-top:4rem;color:var(--muted)}
+img,svg{max-width:100%}
+canvas{position:fixed;inset:0;width:100%;height:100%;z-index:1;pointer-events:none}
+.fly{position:fixed;z-index:50;pointer-events:none;font-size:1.6rem;will-change:transform,opacity}
+@media (hover:none){.react:hover .e{transform:none}}
+@media (max-width:600px){
+  body{font-size:1rem;line-height:1.65}
+  main{padding:0 1.1rem 4rem}
+  section{padding-top:3.2rem}
+  .hero{gap:1rem;padding-top:2rem}
+  .hero .sub{font-size:1.25rem}
+  .row .btn{flex:1 1 100%}
+  .letter{padding:1.4rem 1.2rem;border-radius:22px 22px 22px 6px}
+  .sorry{padding-left:1rem}
+  .promises li{padding:.9rem 1rem}
+  .reactions{display:grid;grid-template-columns:repeat(3,1fr);gap:.6rem}
+  .react{min-width:0;padding:.8rem .4rem}
+  .big{font-size:4.2rem;padding:.4rem}
+  .secret p{font-size:1.4rem}
+}
+@media (max-width:360px){.reactions{grid-template-columns:repeat(2,1fr)}h1{font-size:3.2rem}}
+@media (prefers-reduced-motion:reduce){.big{animation:none}.secret.show{animation:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<canvas id="sky" aria-hidden="true"></canvas>
+<main>
+  <section class="hero">
+    <p class="small">Made only for you</p>
+    <h1 class="serif" id="name">Merrushe</h1>
+    <p class="serif sub">Merita, the way I like to say it.</p>
+    <p class="line" id="mainLine">You are one of the kindest people I know, and I wanted you to hear it from me.</p>
+    <div class="row">
+      <button class="btn" id="open">Open my words</button>
+      <button class="btn ghost" id="lang">Say it in Shqip</button>
+    </div>
+  </section>
+
+  <section id="words">
+    <h2 class="serif">What I want you to know</h2>
+    <div class="letter">
+      <p>Merrushe, you are kind in the quiet, real way. The kind that doesn’t need an audience. Being around you makes ordinary university days feel lighter, and I respect you more than I know how to put on a page.</p>
+      <p>So I’ll say it plainly: <strong>I love you.</strong> Not loudly, not with pressure, just honestly, with all the respect you deserve.</p>
+      <p>And I will stay by your side. Through exams, deadlines, tired mornings and good days. Whatever you need me to be, I’ll be there.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="serif">And one thing I owe you</h2>
+    <div class="sorry">
+      <p>If I ever made you feel bad, sad, or angry, even once, even without meaning to, I’m truly sorry. You deserve gentleness, and I want to keep learning how to give you that.</p>
+    </div>
+    <div class="row"><button class="btn ghost" id="forgive">I hear you 🤍</button></div>
+    <div class="secret" id="forgiveMsg"><p class="serif">Thank you, Merrushe. Your kindness means everything to me.</p></div>
+  </section>
+
+  <section>
+    <h2 class="serif">My promises to you</h2>
+    <ul class="promises">
+      <li><span>🌸</span><div><b>Respect</b>Always, in every word and every silence.</div></li>
+      <li><span>🤝</span><div><b>Loyalty</b>I’ll stand by you, in good days and hard ones.</div></li>
+      <li><span>☀️</span><div><b>Kindness</b>You give so much warmth. I want to give some back.</div></li>
+      <li><span>🌙</span><div><b>Patience</b>At your pace, never pushed.</div></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 class="serif">Tell me how it feels</h2>
+    <p class="small">Tap the reactions. Each one sends a little love back to me.</p>
+    <div class="reactions" id="reactions">
+      <button class="react" data-e="❤️"><span class="e">❤️</span><span>Love <b data-c>0</b></span></button>
+      <button class="react" data-e="🤗"><span class="e">🤗</span><span>Hug <b data-c>0</b></span></button>
+      <button class="react" data-e="🌹"><span class="e">🌹</span><span>Rose <b data-c>0</b></span></button>
+      <button class="react" data-e="✨"><span class="e">✨</span><span>Sparkle <b data-c>0</b></span></button>
+      <button class="react" data-e="😊"><span class="e">😊</span><span>Smile <b data-c>0</b></span></button>
+    </div>
+    <div class="meter" aria-hidden="true"><i id="fill"></i></div>
+    <p class="small" id="meterText">Love meter: 0%</p>
+    <div class="secret" id="secret"><p class="serif">Meter full! You make me smile every single day, Merrushe. 💖</p></div>
+  </section>
+
+  <section>
+    <h2 class="serif">One last thing</h2>
+    <p>Tap the heart. Hold it for a rain of love.</p>
+    <button class="big" id="heart" aria-label="Send a heart">💗</button>
+    <footer>
+      <p class="serif" style="font-size:1.6rem;margin:2rem 0 0">With love and respect, always.</p>
+      <p class="small">For Merrushe 🌷</p>
+    </footer>
+  </section>
+</main>
+
+<script>
+(function(){
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Floating hearts background
+  var cv = document.getElementById('sky'), cx = cv.getContext('2d'), W, H, bits = [];
+  var dpr = Math.min(window.devicePixelRatio || 1, 2);
+  function size(){ W = innerWidth; H = innerHeight; cv.width = W*dpr; cv.height = H*dpr; cx.setTransform(dpr,0,0,dpr,0,0); }
+  size(); addEventListener('resize', size);
+  var glyphs = ['♥','✦','❀','·'];
+  var count = innerWidth < 600 ? 14 : 26;
+  for (var i = 0; i < count; i++) bits.push(spawn(true));
+  function spawn(init){
+    return {x:Math.random()*W, y:init?Math.random()*H:H+20, s:8+Math.random()*16,
+      v:.2+Math.random()*.5, d:Math.random()*6, g:glyphs[Math.floor(Math.random()*glyphs.length)],
+      c:['#ff6b8f','#ffb89a','#f6cf7a','#cdb6e6'][Math.floor(Math.random()*4)]};
+  }
+  function draw(){
+    cx.clearRect(0,0,W,H);
+    bits.forEach(function(b,i){
+      b.y -= b.v; b.d += .02; b.x += Math.sin(b.d)*.4;
+      if (b.y < -30) bits[i] = spawn(false);
+      cx.globalAlpha = .28; cx.fillStyle = b.c; cx.font = b.s + 'px serif';
+      cx.fillText(b.g, b.x, b.y);
+    });
+    requestAnimationFrame(draw);
+  }
+  if (!reduce) draw();
+
+  // Emoji burst
+  function burst(e, x, y, n){
+    if (reduce) n = 1;
+    for (var i = 0; i < n; i++){
+      var el = document.createElement('div');
+      el.className = 'fly'; el.textContent = e;
+      el.style.left = x + 'px'; el.style.top = y + 'px';
+      document.body.appendChild(el);
+      var dx = (Math.random()-.5)*Math.min(220, innerWidth*.5), dy = -(90+Math.random()*190), r = (Math.random()-.5)*80;
+      el.animate([
+        {transform:'translate(-50%,-50%) scale(.6)', opacity:1},
+        {transform:'translate(calc(-50% + '+dx+'px),'+dy+'px) rotate('+r+'deg) scale(1.3)', opacity:0}
+      ], {duration:1100+Math.random()*700, easing:'cubic-bezier(.2,.7,.3,1)'}).onfinish = (function(n){return function(){n.remove()}})(el);
+    }
+  }
+
+  // Tap anywhere for a small heart
+  addEventListener('pointerdown', function(ev){
+    if (ev.target.closest('button')) return;
+    burst('💗', ev.clientX, ev.clientY, 1);
+  });
+
+  // Reactions + love meter
+  var total = 0, fill = document.getElementById('fill'), mt = document.getElementById('meterText'),
+      secret = document.getElementById('secret');
+  document.querySelectorAll('.react').forEach(function(b){
+    b.addEventListener('click', function(ev){
+      var c = b.querySelector('[data-c]'); c.textContent = (+c.textContent) + 1;
+      b.classList.add('on'); setTimeout(function(){b.classList.remove('on')}, 350);
+      var r = b.getBoundingClientRect();
+      burst(b.dataset.e, r.left + r.width/2, r.top, 8);
+      total = Math.min(100, total + 6);
+      fill.style.width = total + '%';
+      mt.textContent = 'Love meter: ' + total + '%';
+      if (total >= 100){
+        secret.classList.add('show');
+        for (var i = 0; i < 5; i++) setTimeout(function(){ burst('💖', innerWidth/2, innerHeight/2, 10) }, i*250);
+      }
+    });
+  });
+
+  // Big heart: tap and hold
+  var heart = document.getElementById('heart'), hold = null;
+  function rain(){ burst(['💗','💖','🌷','💕'][Math.floor(Math.random()*4)], Math.random()*innerWidth, innerHeight*.9, 2); }
+  heart.addEventListener('click', function(){
+    var r = heart.getBoundingClientRect(); burst('❤️', r.left+r.width/2, r.top+r.height/2, 12);
+  });
+  heart.addEventListener('contextmenu', function(e){ e.preventDefault(); });
+  heart.addEventListener('pointerdown', function(){ hold = setInterval(rain, 120); });
+  ['pointerup','pointerleave','pointercancel'].forEach(function(t){
+    heart.addEventListener(t, function(){ clearInterval(hold); });
+  });
+
+  // Buttons
+  document.getElementById('open').addEventListener('click', function(ev){
+    burst('🌷', ev.clientX, ev.clientY, 10);
+    document.getElementById('words').scrollIntoView({behavior: reduce ? 'auto' : 'smooth'});
+  });
+  document.getElementById('forgive').addEventListener('click', function(ev){
+    document.getElementById('forgiveMsg').classList.add('show');
+    burst('🤍', ev.clientX, ev.clientY, 12);
+  });
+  var sq = false, line = document.getElementById('mainLine'), lang = document.getElementById('lang');
+  var en = 'You are one of the kindest people I know, and I wanted you to hear it from me.';
+  var al = 'Je një nga njerëzit më të mirë që njoh, dhe desha ta dëgjosh nga unë. Të dua shumë, Merrushe.';
+  lang.addEventListener('click', function(ev){
+    sq = !sq; line.textContent = sq ? al : en;
+    lang.textContent = sq ? 'Say it in English' : 'Say it in Shqip';
+    burst('💞', ev.clientX, ev.clientY, 8);
+  });
+  document.getElementById('name').addEventListener('click', function(ev){
+    burst('💖', ev.clientX, ev.clientY, 14);
+  });
+})();
+</script>
+</body>
+</html>
